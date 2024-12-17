@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -26,6 +27,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const navigation = useNavigation();
   return (
     <html lang="en">
       <head>
@@ -35,6 +37,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <div
+          className={`${
+            navigation.state === "loading"
+              ? "fixed top-0 left-0 w-full h-screen bg-white/50 transition-colors duration-500 z-20"
+              : ""
+          }`}
+        ></div>
         <div className="fixed p-2 font-extrabold text-3xl top-0 left-0 w-full bg-black/50 text-white shadow-lg z-10">
           <Link to="/">remiX lite</Link>
         </div>
