@@ -19,15 +19,12 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         Welcome, <span className="text-[hsl(280,100%,70%)]">{user.name}</span> !
       </p>
       <Link to="post" className="font-bold text-md">
-        <button className="bg-[hsl(280,100%,70%)] p-2 rounded-md font-semibold text-xl">
+        <button className="bg-[hsl(280,100%,70%)] px-1 py-2 rounded-md font-semibold text-xl">
           ポストを見る
         </button>
       </Link>
       <Form method="post">
-        <button
-          type="submit"
-          className="bg-[hsl(280,100%,70%)] p-2 rounded-md font-semibold text-xl"
-        >
+        <button type="submit" className="underline hover:text-purple-200">
           ログアウト
         </button>
       </Form>
